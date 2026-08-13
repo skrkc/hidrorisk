@@ -86,7 +86,7 @@ cd hidrorisk
 
 2) Sanal ortam oluşturun ve aktif edin
 
-Windows PowerShell:
+Windows PowerShell veya VS Code içindeki PowerShell terminali:
 
 ```powershell
 python -m venv .venv
