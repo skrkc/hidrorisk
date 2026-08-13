@@ -51,7 +51,7 @@ Projede aşağıdaki araçlar bulunmaktadır:
    - SPI zaman serisi grafiği üretir ve PNG olarak kaydeder.
 
 5. **internet_search**
-   - Gerekli durumlarda internet araması yapar.
+   - internet aramasında konuya özel sayfaları genel ana sayfalara göre önceliklendiren sonuç filtreleme geliştirilmiştir.
 
 ## Kısa Kavramlar
 
@@ -286,8 +286,8 @@ Asistan:
 2. Devlet Su İşleri Genel Müdürlüğü - DSİ
    https://dsi.gov.tr/Sayfa/Detay/1870
 
-3. Devlet Su İşleri Teknik Araştırma ve Kalite Kontrol Dairesi Başkanlığı
-   https://takk.dsi.gov.tr/
+3. TAŞKIN RİSK YÖNETİMİ - Sayistay
+   https://www.sayistay.gov.tr/reports/download/3960-taskin-risk-yonetimi
 ```
 
 ## Önemli Notlar

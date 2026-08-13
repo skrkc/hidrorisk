@@ -10,6 +10,7 @@ import html
 import math
 import re
 from pathlib import Path
+from urllib.parse import urlparse
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -437,7 +438,10 @@ def plot_spi_series(
 # ---------------------------------------------------------------------------
 
 def internet_search(query: str, max_results: int = 5) -> str:
-    """DuckDuckGo'nun sade (lite) arayuzunde arama yapar."""
+    """DuckDuckGo'nun sade (lite) arayüzünde arama yapar.
+
+    Konuya özel alt sayfaları genel kurum ana sayfalarına göre önceliklendirir.
+    """
 
     try:
         response = requests.post(
@@ -446,6 +450,7 @@ def internet_search(query: str, max_results: int = 5) -> str:
             headers=HEADERS,
             timeout=TIMEOUT,
         )
+        response.raise_for_status()
 
         pairs = re.findall(
             r"""<a[^>]*href="([^"]+)"[^>]*class=['"]result-link['"][^>]*>(.*?)</a>""",
@@ -453,22 +458,60 @@ def internet_search(query: str, max_results: int = 5) -> str:
             flags=re.DOTALL,
         )
 
-        results = []
+        # Filtreleme yapabilmek için istenenden daha fazla aday incelenir.
+        candidate_limit = max(max_results * 4, 12)
 
-        for url, raw_title in pairs[:max_results]:
+        specific_results = []
+        homepage_results = []
+        seen_urls = set()
+
+        for url, raw_title in pairs[:candidate_limit]:
+            url = html.unescape(url).strip()
+
             title = html.unescape(
                 re.sub(r"<[^>]+>", "", raw_title)
             ).strip()
 
-            if title:
+            if not title or not url or url in seen_urls:
+                continue
+
+            seen_urls.add(url)
+
+            try:
+                parsed = urlparse(url)
+                path = parsed.path.rstrip("/")
+
+                # Örnek:
+                # https://takk.dsi.gov.tr/  -> genel ana sayfa
+                # https://dsi.gov.tr/Sayfa/Detay/1872 -> konuya özel alt sayfa
+                is_homepage = not path and not parsed.query
+
+            except ValueError:
+                is_homepage = False
+
+            item = (title, url)
+
+            if is_homepage:
+                homepage_results.append(item)
+            else:
+                specific_results.append(item)
+
+        # Önce doğrudan içerik/alt sayfalar, yetmezse ana sayfalar.
+        ranked_results = specific_results + homepage_results
+
+        selected = ranked_results[:max_results]
+
+        if selected:
+            results = []
+
+            for index, (title, url) in enumerate(selected, start=1):
                 results.append(
-                    f"{len(results) + 1}. {title}\n"
-                    f"   {html.unescape(url)}"
+                    f"{index}. {title}\n"
+                    f"   {url}"
                 )
 
-        if results:
             return (
-                f"'{query}' icin internet sonuclari:\n"
+                f"'{query}' için internet sonuçları:\n"
                 + "\n".join(results)
             )
 
