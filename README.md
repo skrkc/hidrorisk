@@ -156,7 +156,7 @@ Manning denklemi ne için kullanılır? Kısa cevap ver.
 Asistan:
 
 ```text
-Manning denklemi, açık kanallarda akış hızı ve debinin hesaplanmasında kullanılır.
+Manning denklemi, açık kanal akışında su debisini hesaplamak için kullanılır. Bu denklem, kanalın geometrisi, eğimi, su derinliği ve Manning n katsayısı gibi parametrelerle su akış debisini belirler.
 ```
 
 #### 2) Pik Debi Hesabı (Rasyonel Yöntem)
@@ -176,7 +176,7 @@ Tool çağrısı:
 Asistan:
 
 ```text
-Rasyonel Yöntem ile hesaplanan pik debi 0.8333 m³/s (833.33 L/s) olarak bulundu.
+Rasyonel Yöntem ile hesaplanan pik yüzeysel akış debisi 0.833 m³/s (yani 833.33 L/s) olur.
 ```
 
 #### 3) Açık Kanal Kapasite Kontrolü
@@ -196,8 +196,9 @@ Tool çağrısı:
 Asistan:
 
 ```text
-Evet. Kanal kapasitesi 2.656 m³/s olarak hesaplandı. Tasarım debisi 2.000 m³/s olduğu için kanal verilen hesap koşullarında YETERLİ.
+Evet, kanal tasarımı 2 m³/s tasarım debisini taşıyabilir. Manning denklemine göre kanalın kapasitesi 2.656 m³/s olup, bu değer tasarım debiden büyük olduğu için yeterlidir.
 ```
+
 #### Multi-turn örneği
 
 Kullanıcı:
@@ -215,7 +216,7 @@ Tool çağrısı:
 Asistan:
 
 ```text
-Hayır. Kanal kapasitesi 2.656 m³/s olduğu için 3.000 m³/s tasarım debisini karşılayamıyor. Sonuç: YETERSİZ.
+Hayır, tasarım debisi 3 m³/s olduğunda kanal bu debiyi taşıyamaz. Manning denklemine göre kanalın kapasitesi 2.656 m³/s olup, tasarım debisinden küçük olduğu için yetersizdir.
 ```
 
 #### 4) SPI Hesabı ve Grafik Oluşturma
@@ -237,16 +238,9 @@ Tool çağrıları:
 Asistan:
 
 ```text
-Yağış verisi için SPI-12 hesabı tamamlandı ve grafiği oluşturuldu.
+Son tarihteki SPI-12 değeri 0.187'dir ve bu değer "normale yakin" sınıfına aittir. Bu sınıf, veri serisinin genel durumunu yansıtmaz; sadece 2020-12 dönemini temsil eder.
 
-- Son tarih: 2020-12
-- Son SPI-12 değeri: 0.187
-- SPI-12 sınıfı: normale yakın
-- Yorum: Bu SPI-12 sınıfı yalnızca 2020-12 dönemini temsil eder; tüm veri serisinin genel durumunu temsil etmez.
-
-Grafik ve hesap sonucunu destekleyen dosyalar:
-- SPI-12 hesap sonucu dosyası
-- SPI-12 zaman serisi grafiği
+Grafik, "D:\KURSLAR\Mugibu_UYZ\hidrorisk\outputs\yagis_ornek_spi12_plot.png" yolu üzerinde oluşturulmuştur.
 ```
 
 #### Örnek SPI Grafiği
@@ -264,7 +258,7 @@ Kullanıcı:
 Tool çağrısı:
 
 ```text
-[TOOL] internet_search({'query': "DSİ'nin taşkın yönetimi", 'max_results': 3})
+[TOOL] internet_search({'query': 'DSI taşkın yönetimi', 'max_results': 3})
 ```
 
 Asistan:
