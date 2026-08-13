@@ -53,6 +53,22 @@ Projede aşağıdaki araçlar bulunmaktadır:
 5. **internet_search**
    - Gerekli durumlarda internet araması yapar.
 
+## Kısa Kavramlar
+
+- **Pik Debi:** Belirli bir olay sırasında oluşan en yüksek akış debisidir.
+
+- **Rasyonel Yöntem:** Yağış şiddeti, havza alanı ve akım katsayısını kullanarak küçük havzalarda pik debiyi tahmin etmek için kullanılan basit bir yöntemdir.
+
+- **Manning Denklemi:** Açık kanallardaki akış hızı ve debisini; kanal geometrisi, eğim ve pürüzlülük gibi özelliklere göre hesaplamak için kullanılan bir denklemdir.
+
+- **Manning n Katsayısı:** Kanal yüzeyinin akışa karşı gösterdiği pürüzlülüğü temsil eden katsayıdır.
+
+- **SPI (Standartlaştırılmış Yağış İndisi):** Yağış verilerini kullanarak belirli bir dönemin normalden ne kadar kurak veya nemli olduğunu standartlaştırılmış bir değerle ifade eden indekstir.
+
+- **SPI-12:** SPI'nin 12 aylık yağış birikimi üzerinden hesaplanan biçimidir. Uzun dönemli yağış eksikliği veya fazlalığının değerlendirilmesinde kullanılır.
+
+- **Açık Kanal:** Su yüzeyinin atmosferle temas ettiği kanal, dere veya benzeri akış sistemidir.
+
 ## Proje Yapısı
 
 ```text
