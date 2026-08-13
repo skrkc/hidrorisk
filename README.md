@@ -120,21 +120,22 @@ python chat.py
 Program açıldığında aşağıdaki gibi bir ekran görülür:
 
 ```text
+
 ============================================================
                          HIDRORISK
-          Yerel Hidroloji ve Hidrolik Risk Asistani
+          Yerel Hidroloji ve Hidrolik Risk Asistanı
 ============================================================
 
 Model : qwen3:4b-instruct-2507-q4_K_M
 
-Araclar:
-  [1] Pik Debi Hesabi
-  [2] Acik Kanal Kapasitesi
-  [3] SPI Kuraklik Analizi
-  [4] SPI Grafik Olusturma
-  [5] Internet Aramasi
+Araçlar:
+  [1] Pik Debi Hesabı
+  [2] Açık Kanal Kapasitesi
+  [3] SPI Kuraklık Analizi
+  [4] SPI Grafik Oluşturma
+  [5] İnternet Araması
 
-Cikmak icin: cik
+Çıkmak için: çık
 ------------------------------------------------------------
 ```
 
@@ -149,13 +150,13 @@ Cikmak icin: cik
 Kullanıcı:
 
 ```text
-Manning denklemi ne icin kullanilir? Kisa cevap ver.
+Manning denklemi ne için kullanılır? Kısa cevap ver.
 ```
 
 Asistan:
 
 ```text
-Manning denklemi, acik kanallarda akis hizi ve debinin hesaplanmasinda kullanilir.
+Manning denklemi, açık kanallarda akış hızı ve debinin hesaplanmasında kullanılır.
 ```
 
 #### 2) Pik Debi Hesabı (Rasyonel Yöntem)
@@ -163,7 +164,7 @@ Manning denklemi, acik kanallarda akis hizi ve debinin hesaplanmasinda kullanili
 Kullanıcı:
 
 ```text
-Akim katsayisi 0.6, yagis siddeti 50 mm/saat ve havza alani 10 hektar. Rasyonel Yontem ile pik debiyi hesapla.
+Akım katsayısı 0.6, yağış şiddeti 50 mm/saat ve havza alanı 10 hektar. Rasyonel Yöntem ile pik debiyi hesapla.
 ```
 
 Tool çağrısı:
@@ -175,7 +176,7 @@ Tool çağrısı:
 Asistan:
 
 ```text
-Rasyonel Yontem ile hesaplanan pik debi 0.8333 m3/s (833.33 L/s) olarak bulundu.
+Rasyonel Yöntem ile hesaplanan pik debi 0.8333 m³/s (833.33 L/s) olarak bulundu.
 ```
 
 #### 3) Açık Kanal Kapasite Kontrolü
@@ -183,7 +184,7 @@ Rasyonel Yontem ile hesaplanan pik debi 0.8333 m3/s (833.33 L/s) olarak bulundu.
 Kullanıcı:
 
 ```text
-Tasarim debisi 2 m3/s olan dikdortgen bir kanalin genisligi 2 m, su derinligi 1 m, Manning n katsayisi 0.015 ve taban egimi 0.001. Kanal bu debiyi tasiyabilir mi?
+Tasarım debisi 2 m³/s olan dikdörtgen bir kanalın genişliği 2 m, su derinliği 1 m, Manning n katsayısı 0.015 ve taban eğimi 0.001. Kanal bu debiyi taşıyabilir mi?
 ```
 
 Tool çağrısı:
@@ -195,14 +196,14 @@ Tool çağrısı:
 Asistan:
 
 ```text
-Evet. Kanal kapasitesi 2.656 m3/s olarak hesaplandi. Tasarim debisi 2.000 m3/s oldugu icin kanal verilen hesap kosullarinda YETERLI.
+Evet. Kanal kapasitesi 2.656 m³/s olarak hesaplandı. Tasarım debisi 2.000 m³/s olduğu için kanal verilen hesap koşullarında YETERLİ.
 ```
 #### Multi-turn örneği
 
 Kullanıcı:
 
 ```text
-Peki tasarim debisi 3 m3/s olsaydi?
+Peki tasarım debisi 3 m3/s olsaydı?
 ```
 
 Tool çağrısı:
@@ -214,7 +215,7 @@ Tool çağrısı:
 Asistan:
 
 ```text
-Hayir. Kanal kapasitesi 2.656 m3/s oldugu icin 3.000 m3/s tasarim debisini karsilayamiyor. Sonuc: YETERSIZ.
+Hayır. Kanal kapasitesi 2.656 m³/s olduğu için 3.000 m³/s tasarım debisini karşılayamıyor. Sonuç: YETERSİZ.
 ```
 
 #### 4) SPI Hesabı ve Grafik Oluşturma
@@ -222,7 +223,7 @@ Hayir. Kanal kapasitesi 2.656 m3/s oldugu icin 3.000 m3/s tasarim debisini karsi
 Kullanıcı:
 
 ```text
-data/yagis_ornek.csv dosyasi icin SPI-12 hesapla ve grafigini olustur.
+data/yagis_ornek.csv dosyası için SPI-12 hesapla ve grafiğini oluştur.
 ```
 
 Tool çağrıları:
@@ -236,16 +237,16 @@ Tool çağrıları:
 Asistan:
 
 ```text
-Yagis verisi icin SPI-12 hesabi tamamlandi ve grafigi olusturuldu.
+Yağış verisi için SPI-12 hesabı tamamlandı ve grafiği oluşturuldu.
 
 - Son tarih: 2020-12
-- Son SPI-12 degeri: 0.187
-- SPI-12 sinifi: normale yakin
-- Yorum: Bu SPI-12 sinifi yalnizca 2020-12 donemini temsil eder; tum veri serisinin genel durumunu temsil etmez.
+- Son SPI-12 değeri: 0.187
+- SPI-12 sınıfı: normale yakın
+- Yorum: Bu SPI-12 sınıfı yalnızca 2020-12 dönemini temsil eder; tüm veri serisinin genel durumunu temsil etmez.
 
 Grafik ve hesap sonucunu destekleyen dosyalar:
-- SPI-12 hesap sonucu dosyasi
-- SPI-12 zaman serisi grafigi
+- SPI-12 hesap sonucu dosyası
+- SPI-12 zaman serisi grafiği
 ```
 
 #### Örnek SPI Grafiği
@@ -257,25 +258,25 @@ Grafik ve hesap sonucunu destekleyen dosyalar:
 Kullanıcı:
 
 ```text
-Internetten DSI'nin taskin yonetimiyle ilgili 3 kaynak bul.
+İnternetten DSİ'nin taşkın yönetimiyle ilgili 3 kaynak bul.
 ```
 
 Tool çağrısı:
 
 ```text
-[TOOL] internet_search({'query': "DSI'nin taskin yonetimi", 'max_results': 3})
+[TOOL] internet_search({'query': "DSİ'nin taşkın yönetimi", 'max_results': 3})
 ```
 
 Asistan:
 
 ```text
-1. Devlet Su Isleri Genel Mudurlugu - DSI
+1. Devlet Su İşleri Genel Müdürlüğü - DSİ
    https://dsi.gov.tr/Sayfa/Detay/1872
 
-2. Devlet Su Isleri Genel Mudurlugu - DSI
+2. Devlet Su İşleri Genel Müdürlüğü - DSİ
    https://dsi.gov.tr/Sayfa/Detay/1870
 
-3. Devlet Su Isleri Teknik Arastirma ve Kalite Kontrol Dairesi Baskanligi
+3. Devlet Su İşleri Teknik Araştırma ve Kalite Kontrol Dairesi Başkanlığı
    https://takk.dsi.gov.tr/
 ```
 
